@@ -1,9 +1,8 @@
 package com.revature.Services;
 
 import org.apache.log4j.Logger;
-
 import com.revature.DAO.AudiCarDAOPostGreSQL;
-import com.revature.Objects.*;
+
 
 /**
  * @author josecanela
@@ -12,9 +11,8 @@ import com.revature.Objects.*;
 public class RemoveRegisteredAudi implements RemoveAudiCar{
 	private static Logger log = Logger.getRootLogger();
 	AudiCarDAOPostGreSQL audiDAO = new AudiCarDAOPostGreSQL();
-	/**
-	 * @param carVin
-	 */
+	
+	@Override
 	public void removeAudiCar(String carVin) {
 		if(carVin == null || !(audiDAO.readCar(carVin).getVinNumber().equals(carVin))) {
 			System.out.println("Car does not exist");

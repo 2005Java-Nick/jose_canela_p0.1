@@ -1,14 +1,9 @@
 package com.revature.Services;
 
-import java.util.Iterator;
-import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
-
-import com.revature.DAO.AudiCarDAO;
 import com.revature.DAO.AudiCarDAOPostGreSQL;
 import com.revature.DAO.OfferDAOPostgreSQL;
-import com.revature.DAO.UserDAO;
 import com.revature.DAO.UserDAOPostgreSQL;
 import com.revature.Objects.*;
 
@@ -40,6 +35,7 @@ public class BidOnAudiCar implements BidOnAudis{
 		log.info("acceptOffer: Customer ("+cust.getUserId()+") had their offer accepted)");
 	}
 
+	@Override
 	public void getCurrentOffers() {
 		// TODO Auto-generated method stub
 		OfferDAOPostgreSQL offerDAO = new OfferDAOPostgreSQL();

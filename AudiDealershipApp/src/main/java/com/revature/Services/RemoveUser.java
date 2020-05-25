@@ -15,12 +15,6 @@ public class RemoveUser implements RmvUsers{
 	AuthenticateUser authUser = new AuthenticateUser();
 	UserDAOPostgreSQL userDAO = new UserDAOPostgreSQL();
 	
-
-	/**
-	 * @param username
-	 * @param password
-	 * @param customer
-	 */
 	@Override
 	public void removeUser(String username, String password, String customerUsername) {
 	
@@ -40,9 +34,7 @@ public class RemoveUser implements RmvUsers{
 
 	}
 	
-	/**
-	 *
-	 */
+	@Override
 	public void viewCustomers() {
 		for (Customer cust: userDAO.readAllCustomers()) {
 			System.out.println(cust.getUsername()); 

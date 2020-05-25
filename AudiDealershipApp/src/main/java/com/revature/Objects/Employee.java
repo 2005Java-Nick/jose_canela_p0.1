@@ -1,11 +1,47 @@
 package com.revature.Objects;
 
 /**
+ * An employee user of the Audi Dealership application
+ * 
  * @author josecanela
  *
  */
-@SuppressWarnings("serial")
+
 public class Employee extends User {
+
+	/**
+	 * Instantiates an Employee object.
+	 */
+	public Employee() {
+		// TODO Auto-generated constructor stub
+		super();
+	}
+
+	/**
+	 * Instantiates an Employee object with an employee ID, username, and password
+	 * 
+	 * @param userId an employee's ID
+	 * @param username an employee's username
+	 * @param password an employee's password
+	 */
+	public Employee(int userId, String username, String password) {
+		super();
+		this.userId = userId;
+		this.username = username;
+		this.password = password;
+	}
+
+	/**
+	 * Instantiates an Employee object with a username and password
+	 * 
+	 * @param username an employee's username
+	 * @param password an employee's password
+	 */
+	public Employee(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
 
 	@Override
 	public int hashCode() {
@@ -22,27 +58,5 @@ public class Employee extends User {
 			return false;
 		return true;
 	}
-
-	/**
-	 * 
-	 */
-	public Employee() {
-		// TODO Auto-generated constructor stub
-		super();
-	}
-	
-		public Employee(int userId, String username, String password) {
-			super();
-			this.userId = userId;
-			this.username = username;
-			this.password = password;
-		}
-
-		public Employee(String username, String password) {
-			super();
-			this.username = username;
-			this.password = password;
-		
-		}
 
 }

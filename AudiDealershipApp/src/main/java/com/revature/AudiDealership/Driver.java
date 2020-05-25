@@ -7,25 +7,33 @@ import org.apache.log4j.PropertyConfigurator;
 
 import com.revature.DAO.AudiCarDAOPostGreSQL;
 import com.revature.DAO.UserDAOPostgreSQL;
-import com.revature.DAO.OfferDAOPostgreSQL;
-import com.revature.DAO.PaymentDAOPostgreSQL;
 import com.revature.Objects.*;
 import com.revature.Services.*;
 
 /**
+ * A menu driver that displays all the menus in the Audi Dealership Application
+ * <p> 
+ * The Audi Dealership application runs through the Driver class.
+ * 
  * @author josecanela
  *
  */
 
 public class Driver {
+	/** Root logger for the entire application*/
 	private static Logger log = Logger.getLogger(Driver.class);
-	
-	static User user = new User(); // Instantiate a user
+	/** A user of the Audi Dealership Application*/
+	static User user = new User(); // Instantiate a new user
 
 	/**
+	 * Starts up the application by displaying the main menu of the 
+	 * Audi Dealership Application.
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+		/** Allows the configuration of log4j from an external file*/
 		PropertyConfigurator.configure("log4j.properties");
 		
 		mainMenu();
@@ -33,9 +41,9 @@ public class Driver {
 
 	}
 
-//Main Menu
 	/**
-	 * 
+	 * Displays the main menu of the application where a user is given 
+	 * a choice to either login, register an account, or close the application.
 	 */
 	public static void mainMenu() {
 		
@@ -89,9 +97,11 @@ public class Driver {
 		System.exit(0);
 	}
 
-	//SignIn Menu
 	/**
-	 * 
+	 * Displays the login menu of the application where the 
+	 * user is given a choice to either login as an employee,
+	 * login as a customer, or exit the login menu and return
+	 * to the main menu.
 	 */
 	public static void signInMenu() {
 		AuthenticateUser authUser = new AuthenticateUser();
@@ -172,9 +182,14 @@ public class Driver {
 
 	}
 
-	//Registration Menu
 	/**
-	 * 
+	 * Displays the registration menu where the user 
+	 * is given a choice to either register an account as 
+	 * a customer, register an account as an employee, or
+	 * return to the main menu.
+	 * <p>
+	 * After a user registers, they are automatically sent to
+	 * the login menu corresponding to the type of user they registered as. 
 	 */
 	public static void registrationMenu() {
 		RegisterUser regUser = new RegisterUser();
@@ -233,9 +248,17 @@ public class Driver {
 		}
 	}
 
-	//CustomerMenu
 	/**
-	 * @param username
+	 * Displays the customer menu where a customer is given a choice to either
+	 * view all the cars on the Audi dealership lot, make an offer on a Audi car 
+	 * that's on the lot, view the cars they've bought and the customer's payment records for that car,
+	 * view their entire payment history, make a monthly payment on a car, or logout and return to the login menu.
+	 * <p> 
+	 * After a choice has made (that does not consist of logging out) and when the customer is 
+	 * done following through on that decision, they will be returned to the customer menu.
+	 * 
+	 * @param username the customer's username
+	 * @param password the customer's password
 	 */
 	public static void customerMenu(String username, String password) {
 		String userInput, vinNumber;
@@ -342,9 +365,18 @@ public class Driver {
 		}
 	}
 
-//EmployeeMenu
 	/**
-	 * @param username
+	 * Displays the employee menu where an employee is given a choice to either
+	 * view all the cars in the Audi Dealership database (including those that have already been bought), 
+	 * add an Audi to the lot, both view and accept a customer's offer on a car, remove a car from the lot,
+	 * view the cars they own and the customer's payment records for that car, view the payment history of all customers, 
+	 * delete a customer's account, or logout and return to the login menu.
+	 * <p> 
+	 * After a choice has made (that does not consist of logging out) and when the employee is 
+	 * done following through on that decision, they will be returned to the employee menu.
+	 * 
+	 * @param username the employee's username
+	 * @param password the employee's password
 	 */
 	public static void employeeMenu(String username, String password) {
 		ViewAudi viewAudi = new ViewAudi();

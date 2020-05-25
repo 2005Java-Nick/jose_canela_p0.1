@@ -1,8 +1,6 @@
 package com.revature.Services;
 
 import org.apache.log4j.Logger;
-
-import com.revature.DAO.UserDAO;
 import com.revature.DAO.UserDAOPostgreSQL;
 import com.revature.Objects.*;
 

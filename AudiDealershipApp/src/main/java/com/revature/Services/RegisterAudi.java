@@ -12,13 +12,7 @@ import com.revature.Objects.*;
 public class RegisterAudi implements RegisterAudiCar{
 	private static Logger log = Logger.getRootLogger();
 	private static AudiCarDAOPostGreSQL audiDAO = new AudiCarDAOPostGreSQL();
-	/**
-	 * Works as a log as for the employee
-	 * @param vinNumber
-	 * @param model
-	 * @param year
-	 * @param price
-	 */
+	
 	@Override
 	public void addAudiCar(String vinNumber, String model, String year, Double price) {
 		if(vinNumber == null || model == null || year == null || price == null) {

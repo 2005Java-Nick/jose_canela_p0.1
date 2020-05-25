@@ -1,157 +1,230 @@
 package com.revature.Objects;
 
-import java.io.Serializable;
-import java.util.HashMap;
-
 /**
+ * An Audi car.
+ * 
  * @author josecanela
- *
  */
-@SuppressWarnings("serial")
-public class AudiCar implements Serializable {
+public class AudiCar {
+	/** An Audi car's ID*/
 	private int carId;
+	/** An Audi car's model*/
 	private String model;
+	/** An Audi car's year*/
 	private String year;
+	/** An Audi car's price*/
 	private Double price;
+	/** An Audi car's vehicle identification number*/
 	private String vinNumber;
+	/** An indication of whether or not a customer bought the Audi car*/
 	private boolean owned;
-	//private String owner;
+	
 	/**
-	 * 
+	 * Instantiates an AudiCar object
 	 */
 	public AudiCar() {
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * Used for insertion into database
-	 * @param vinNumber
-	 * @param model
-	 * @param year
-	 * @param price
-	 * @param offer
-	 * @param owned 
-	 * @param owner 
+	 * Instantiates an AudiCar object (that has not been bought) with a model, year, price, vehicle identification number 
+	 * 
+	 * 
+	 * @param vinNumber an Audi car's vehicle identification number
+	 * @param model an Audi car's model
+	 * @param year an Audi car's year
+	 * @param price an Audi car's price
+	 * @param owned whether or not a customer has bought the Audi car
 	 */
 	public AudiCar(String model, String year, Double price,String vinNumber, boolean owned) {
 		this.vinNumber = vinNumber;
 		this.model = model;
 		this.year = year;
 		this.price = price;
-		//this.offer = offer;
 		this.owned = false;
-		//this.owner = owner;
 		
 	}
 	
-	
 	/**
-	 * Used for reading Audi from database
-	 * @param vinNumber
-	 * @param model
-	 * @param year
-	 * @param price
-	 * @param offer
-	 * @param owned
-	 * @param owner
+	 * Instantiates an AudiCar object with with a model, year, price, vehicle identification number,
+	 * and indication of whether or not a customer bought the car
+	 * 
+	 * @param vinNumber an Audi car's vehicle identification number
+	 * @param model an Audi car's model
+	 * @param year an Audi car's year
+	 * @param price an Audi car's price
+	 * @param owned whether or not a customer has bought the Audi car
 	 */
 	public void ReadAudiCar(String model, String year, Double price,String vinNumber, boolean owned) {
 		this.model = model;
 		this.year = year;
 		this.price = price;
 		this.vinNumber = vinNumber;
-		//this.offer = false;
 		this.owned = owned;
-		//this.owner = "";
 		
+	}
+	
+	/**
+	 * Gets an Audi car's ID and returns it
+	 * 
+	 * @return an Audi car's ID
+	 */
+	public int getCarId() {
+		return carId;
 	}
 
 	/**
-	 * @return
+	 * Sets an Audi car's ID
+	 * 
+	 * @param carId an Audi car's ID
+	 */
+	public void setCarId(int carId) {
+		this.carId = carId;
+	}
+
+	/**
+	 * Gets an Audi car's vehicle identification number and returns it
+	 * 
+	 * @return an Audi car's vehicle identification number
 	 */
 	public String getVinNumber() {
 		return vinNumber;
 	}
 
 	/**
-	 * @param vinNumber
+	 * Sets an Audi car's vehicle identification number
+	 * 
+	 * @param vinNumber an Audi car's vehicle identification number
 	 */
 	public void setVinNumber(String vinNumber) {
 		this.vinNumber = vinNumber;
 	}
 
 	/**
-	 * @return
+	 * Gets an Audi car's model and returns it
+	 * 
+	 * @return an Audi car's model
 	 */
 	public String getModel() {
 		return model;
 	}
 
 	/**
-	 * @param model
+	 * Sets an Audi car's model
+	 * 
+	 * @param model an Audi car's model
 	 */
 	public void setModel(String model) {
 		this.model = model;
 	}
 
 	/**
-	 * @return
+	 * Gets an Audi car's year and returns it
+	 * 
+	 * @return an Audi car's year
 	 */
 	public String getYear() {
 		return year;
 	}
 
 	/**
-	 * @param year
+	 * Sets an Audi car's year
+	 * 
+	 * @param year an Audi car's year
 	 */
 	public void setYear(String year) {
 		this.year = year;
 	}
 
 	/**
-	 * @return
+	 * Gets an Audi car's price and returns it
+	 * 
+	 * @return an Audi car's price
 	 */
 	public Double getPrice() {
 		return price;
 	}
 
 	/**
-	 * @param price
+	 * Sets an Audi car's price
+	 * 
+	 * @param price an Audi car's price
 	 */
 	public void setPrice(Double price) {
 		this.price = price;
 	}
 
 	
+	/**
+	 * Gets whether or not a customer has bought the Audi car and returns true or false
+	 * 
+	 * @return whether or not a customer has bought the Audi car
+	 */
 	public boolean isOwned() {
 		return owned;
 	}
 
+	/**
+	 * Sets whether or not a customer has bought the Audi car as true or false
+	 * 
+	 * @param owned whether or not a customer has bought the Audi car
+	 */
 	public void setOwned(boolean owned) {
 		this.owned = owned;
 	}
-
-	/**
-	 *
-	 */
+	
 	@Override
 	public String toString() {
 		return "VIN: " + this.vinNumber + " Model: " + this.model + " Year: " + this.year + " Price: " + this.price;
 	}
 
-	/**
-	 * @return
-	 */
-	public String getCarRecord() {
-		return "| " + this.vinNumber + "     \t| " + this.model + "      \t| " + this.year + "     \t| " + this.price;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + carId;
+		result = prime * result + ((model == null) ? 0 : model.hashCode());
+		result = prime * result + (owned ? 1231 : 1237);
+		result = prime * result + ((price == null) ? 0 : price.hashCode());
+		result = prime * result + ((vinNumber == null) ? 0 : vinNumber.hashCode());
+		result = prime * result + ((year == null) ? 0 : year.hashCode());
+		return result;
 	}
 
-	public int getCarId() {
-		return carId;
-	}
-
-	public void setCarId(int carId) {
-		this.carId = carId;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AudiCar other = (AudiCar) obj;
+		if (carId != other.carId)
+			return false;
+		if (model == null) {
+			if (other.model != null)
+				return false;
+		} else if (!model.equals(other.model))
+			return false;
+		if (owned != other.owned)
+			return false;
+		if (price == null) {
+			if (other.price != null)
+				return false;
+		} else if (!price.equals(other.price))
+			return false;
+		if (vinNumber == null) {
+			if (other.vinNumber != null)
+				return false;
+		} else if (!vinNumber.equals(other.vinNumber))
+			return false;
+		if (year == null) {
+			if (other.year != null)
+				return false;
+		} else if (!year.equals(other.year))
+			return false;
+		return true;
 	}
 
                   

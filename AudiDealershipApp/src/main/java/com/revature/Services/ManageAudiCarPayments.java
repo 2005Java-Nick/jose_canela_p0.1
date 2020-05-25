@@ -1,20 +1,10 @@
 package com.revature.Services;
 
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
-
-import com.revature.DAO.AudiCarDAO;
 import com.revature.DAO.AudiCarDAOPostGreSQL;
 import com.revature.DAO.PaymentDAOPostgreSQL;
 import com.revature.DAO.UserDAOPostgreSQL;
-//import com.revature.DAO.UserDAO;
 import com.revature.Objects.*;
 
 /**

@@ -1,26 +1,20 @@
 package com.revature.Services;
 
-import java.io.Serializable;
-import java.util.HashMap;
+
 
 import org.apache.log4j.Logger;
-
 import com.revature.DAO.*;
-
 import com.revature.Objects.*;
 
 /**
  * @author josecanela
  *
  */
-@SuppressWarnings("serial")
-public class RegisterUser implements RegUser {//implements Serializable {
+public class RegisterUser implements RegUser {
 	private static Logger log = Logger.getRootLogger();
 	private static UserDAOPostgreSQL userDAO = new UserDAOPostgreSQL();
-	/**
-	 * @param username
-	 * @param password
-	 */
+	
+	@Override
 	public void registerCustomer(String username, String password) {
 		if(username == null || password == null) {
 			System.out.println("Invalid username or password. A username AND password must be entered. Please try again.");
@@ -39,11 +33,7 @@ public class RegisterUser implements RegUser {//implements Serializable {
 		
 	}
 
-	/**
-	 * @param username
-	 * @param password
-	 * @param systemPassword
-	 */
+	@Override
 	public void registerEmployee(String username, String password) {
 		if(username == null || password == null) {
 			System.out.println("Invalid username or password. A username AND password must be entered. Please try again.");
